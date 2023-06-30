@@ -1,6 +1,5 @@
 ---
-- hosts: workstation
-  connection: local
+- hosts: 127.0.0.1
   tasks:
     - ansible.builtin.include_role:
         name: workstation
