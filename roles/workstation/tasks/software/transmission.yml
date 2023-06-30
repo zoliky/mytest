@@ -1,0 +1,5 @@
+- name: Software | Transmission
+  community.general.flatpak:
+    name: com.transmissionbt.Transmission
+    method: user
+    state: present

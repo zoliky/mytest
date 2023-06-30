@@ -1,0 +1,5 @@
+- name: Software | Calibre
+  community.general.flatpak:
+    name: com.calibre_ebook.calibre
+    method: user
+    state: present

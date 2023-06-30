@@ -1,0 +1,20 @@
+- name: System | Fonts | Install Hack fonts
+  become: true
+  ansible.builtin.package:
+    name: "{{ package_fonts_hack }}"
+    state: present
+
+- name: System | Fonts | Install Microsoft fonts
+  become: true
+  ansible.builtin.dnf:
+    disable_gpg_check: true
+    name: https://rpmfind.net/linux/sourceforge/m/ms/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: System | Fonts | Debian | Install Microsoft fonts
+  become: true
+  ansible.builtin.package:
+    name: ttf-mscorefonts-installer
+    state: present
+  when: ansible_facts['distribution'] == "Debian"

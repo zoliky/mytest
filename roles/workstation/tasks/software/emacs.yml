@@ -1,0 +1,22 @@
+- name: Software | Emacs | Install maildir-utils
+  become: true
+  ansible.builtin.package:
+    name: maildir-utils
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Software | Emacs | Install isync
+  become: true
+  ansible.builtin.package:
+    name: isync
+    state: present
+
+- name: Software | Emacs | Install hunspell
+  become: true
+  ansible.builtin.package:
+    name:
+      - hunspell
+      - "{{ package_hunspell_en }}"
+      - hunspell-hu
+      - hunspell-ro
+    state: present

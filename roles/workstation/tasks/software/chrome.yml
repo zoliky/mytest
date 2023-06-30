@@ -1,0 +1,33 @@
+- name: Software | Chrome | Add Chrome repository
+  become: true
+  ansible.builtin.yum_repository:
+    file: google-chrome
+    name: google-chrome
+    enabled: true
+    gpgcheck: true
+    description: google-chrome
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Software | Chrome | Debian | Add Chrome repository key
+  become: true
+  ansible.builtin.get_url:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+    dest: /etc/apt/keyrings/linux_signing_key.pub
+    mode: '0644'
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: Software | Chrome | Debian | Add Chrome repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/linux_signing_key.pub] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: Software | Chrome | Install Chrome
+  become: true
+  ansible.builtin.package:
+    name: google-chrome-stable
+    state: present

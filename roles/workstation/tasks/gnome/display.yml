@@ -1,0 +1,9 @@
+- name: GNOME | Display | Enable Night Light
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+
+- name: GNOME | Display | Set Night Light color temperature
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-temperature"
+    value: "uint32 5500"

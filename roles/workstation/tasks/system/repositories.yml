@@ -1,0 +1,40 @@
+- name: System | Repositories | Add Flathub remote
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    state: present
+    method: user
+
+- name: System | Repositories | Add RPM Fusion GPG keys
+  become: true
+  ansible.builtin.rpm_key:
+    key: "{{ item }}"
+    state: present
+  loop:
+    - "{{ rpmfusion_free_gpg_key }}"
+    - "{{ rpmfusion_nonfree_gpg_key }}"
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: System | Repositories | Add RPM Fusion repositories
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ rpmfusion_free_repository }}"
+    - "{{ rpmfusion_nonfree_repository }}"
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: System | Repositories | Add custom APT sources
+  become: true
+  ansible.builtin.template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    mode: '0644'
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: System | Repositories | Update APT cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
+  when: ansible_facts['distribution'] == "Debian"

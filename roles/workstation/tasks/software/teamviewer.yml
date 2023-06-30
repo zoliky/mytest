@@ -1,0 +1,14 @@
+- name: Software | TeamViewer
+  become: true
+  ansible.builtin.dnf:
+    disable_gpg_check: true
+    name: https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Software | Debian | TeamViewer
+  become: true
+  ansible.builtin.apt:
+    deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+    state: present
+  when: ansible_facts['distribution'] == "Debian"

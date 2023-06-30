@@ -1,0 +1,5 @@
+- name: Software | Lollypop
+  community.general.flatpak:
+    name: org.gnome.Lollypop
+    method: user
+    state: present

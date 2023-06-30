@@ -1,0 +1,5 @@
+- name: Software | Darktable
+  community.general.flatpak:
+    name: org.darktable.Darktable
+    method: user
+    state: present

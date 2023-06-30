@@ -1,0 +1,5 @@
+- name: Software | Dropbox
+  community.general.flatpak:
+    name: com.dropbox.Client
+    method: user
+    state: present

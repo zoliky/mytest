@@ -1,0 +1,17 @@
+- name: System | Zsh
+  become: true
+  ansible.builtin.package:
+    name: zsh
+    state: present
+
+- name: System | Zsh | Set zsh as default shell
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+
+- name: System | Zsh | Clone ohmyzsh repository
+  ansible.builtin.git:
+    repo: "https://github.com/ohmyzsh/ohmyzsh.git"
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.oh-my-zsh"
+    update: false

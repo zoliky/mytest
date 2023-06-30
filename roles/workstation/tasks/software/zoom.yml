@@ -1,0 +1,5 @@
+- name: Software | Zoom
+  community.general.flatpak:
+    name: us.zoom.Zoom
+    method: user
+    state: present

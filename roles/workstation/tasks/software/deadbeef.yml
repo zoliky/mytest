@@ -1,0 +1,6 @@
+- name: Software | DeaDBeeF
+  become: true
+  ansible.builtin.package:
+    name: deadbeef
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"

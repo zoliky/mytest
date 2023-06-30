@@ -1,0 +1,5 @@
+- name: Software | Inkscape
+  community.general.flatpak:
+    name: org.inkscape.Inkscape
+    method: user
+    state: present

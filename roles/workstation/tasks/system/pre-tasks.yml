@@ -1,0 +1,20 @@
+- name: System | Pre-tasks | Create user directories
+  ansible.builtin.file:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "tmp"
+    - ".fonts"
+    - ".config/mpv"
+    - ".config/kitty"
+    - ".config/autostart"
+
+- name: System | Pre-tasks | Install prerequisite packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - flatpak
+      - cabextract
+      - "{{ package_python_psutil }}"
+    state: present

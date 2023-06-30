@@ -1,0 +1,20 @@
+#+TITLE: Zoltán Király's Ansible Configuration
+#+AUTHOR: Zoltán Király
+#+EMAIL: zoliky@gmail.com
+#+DATE: <2020-12-27 Sun>
+
+* About 
+
+Ansible is a configuration management tool that I use to automate the installation and configuration of all the software on my computer.
+
+Ansible was developed by Red Hat Inc., which is now a subsidiary of IBM.
+
+[[./static/linuxdesktop.jpg]]
+
+* Installation
+
+I developed this configuration for personal use so it may not work perfectly in your case. I recommend that you use it as a base when building your own configuration rather than installing it directly.
+
+#+begin_src shell
+  $ ansible-pull -U https://github.com/zoliky/mytest.git
+#+end_src

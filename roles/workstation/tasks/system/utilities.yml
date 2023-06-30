@@ -1,0 +1,16 @@
+- name: System | Utilities | Install utilities
+  become: true
+  ansible.builtin.package:
+    name:
+      - mpv
+      - vim
+      - fzf
+      - dfc
+      - curl
+      - htop
+      - kitty
+      - rsync
+      - meson
+      - neovim
+      - ripgrep
+    state: present

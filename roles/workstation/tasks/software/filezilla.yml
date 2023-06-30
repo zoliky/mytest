@@ -1,0 +1,5 @@
+- name: Software | FileZilla
+  community.general.flatpak:
+    name: org.filezillaproject.Filezilla
+    method: user
+    state: present

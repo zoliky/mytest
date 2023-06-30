@@ -1,0 +1,5 @@
+- name: Software | Telegram
+  community.general.flatpak:
+    name: org.telegram.desktop
+    method: user
+    state: present

@@ -1,0 +1,6 @@
+- name: Software | Flacon
+  become: true
+  ansible.builtin.package:
+    name: flacon
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
