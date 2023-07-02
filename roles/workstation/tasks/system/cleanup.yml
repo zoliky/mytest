@@ -2,6 +2,7 @@
   become: true
   ansible.builtin.apt:
     name:
+      - evolution
       - gnome-games
       - gnome-music
       - gnome-sound-recorder
