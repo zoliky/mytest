@@ -5,11 +5,8 @@
     state: present
   when: ansible_facts['distribution'] == "Fedora"
 
-- name: GNOME | Extensions | Install GNOME extensions
+- name: GNOME | Extensions | Install Dash to Dock
   become: true
   ansible.builtin.package:
-    name:
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-no-overview
+    name: "{{ package_dashtodock }}"
     state: present
-  when: ansible_facts['distribution'] == "Fedora"
