@@ -15,9 +15,10 @@
       - meson
       - neovim
       - ripgrep
+      - net-tools
     state: present
 
-- name: System | Utilities | Install Debian-specific utilities
+- name: System | Utilities | Install ufw
   become: true
   ansible.builtin.package:
     name: ufw
