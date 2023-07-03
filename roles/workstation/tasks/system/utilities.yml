@@ -16,3 +16,10 @@
       - neovim
       - ripgrep
     state: present
+
+- name: System | Utilities | Install Debian-specific utilities
+  become: true
+  ansible.builtin.package:
+    name: ufw
+    state: present
+  when: ansible_facts['distribution'] == "Debian"
