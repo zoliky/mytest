@@ -1,5 +1,7 @@
-# Each defined host can have a different set of software that can be installed.
-# This file specifies the software applicable to the localhost.
+# I developed this Ansible configuration with extensibility in mind, anticipating
+# the possibility of adding multiple hosts in the future. Each host can have its
+# own configuration and a unique set of software being installed. This file specifies
+# the software applicable to the localhost.
 
 # Software
 audacity: true
