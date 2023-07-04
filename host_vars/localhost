@@ -1,7 +1,7 @@
 # I developed this Ansible configuration with extensibility in mind, anticipating
 # the possibility of adding multiple hosts in the future. Each host can have its
 # own configuration and a unique set of software being installed. This file specifies
-# variables applicable to the localhost.
+# the variables applicable to the localhost.
 
 # Example
 #
