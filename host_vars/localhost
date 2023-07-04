@@ -3,6 +3,11 @@
 # own configuration and a unique set of software being installed. This file specifies
 # the software applicable to the localhost.
 
+# Example
+#
+# To prevent Audacity from being installed, set the variable to false.
+# audacity: false
+
 # Software
 audacity: true
 bitwarden: true
