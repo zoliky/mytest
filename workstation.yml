@@ -1,5 +1,0 @@
----
-- hosts: workstation
-  tasks:
-    - ansible.builtin.include_role:
-        name: workstation
