@@ -1,4 +1,6 @@
 # Software
+# Set variables to true for software installation, and false to prevent installation.
+
 audacity: true
 bitwarden: true
 boxes: true
