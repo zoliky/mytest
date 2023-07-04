@@ -21,7 +21,7 @@
 - name: Software | VSCode | Debian | Add VSCode repository
   become: true
   ansible.builtin.apt_repository:
-    repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
+    repo: deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
     state: present
     filename: vscode
   when: ansible_facts['distribution'] == "Debian"
