@@ -1,6 +1,7 @@
-# Software
-# Set variables to true for software installation, and false to prevent installation.
+# Each defined host can have a different set of software that can be installed.
+# This file specifies the software applicable to the localhost.
 
+# Software
 audacity: true
 bitwarden: true
 boxes: true
