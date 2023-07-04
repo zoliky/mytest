@@ -16,7 +16,9 @@
     url: https://packages.microsoft.com/keys/microsoft.asc
     dest: /etc/apt/trusted.gpg.d/microsoft.asc
     mode: '0644'
-  when: ansible_facts['distribution'] == "Debian"
+  when:
+    - ansible_facts['distribution'] == "Debian"
+    - vscode is defined and vscode == true
 
 - name: Software | VSCode | Debian | Add VSCode repository
   become: true
@@ -24,10 +26,15 @@
     repo: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/repos/code stable main
     state: present
     filename: vscode
-  when: ansible_facts['distribution'] == "Debian"
+  when:
+    - ansible_facts['distribution'] == "Debian"
+    - vscode is defined and vscode == true
 
 - name: Software | VSCode | Install VSCode
   become: true
   ansible.builtin.package:
     name: code
     state: present
+  when:
+    - ansible_facts['distribution'] == "Debian"
+    - vscode is defined and vscode == true
