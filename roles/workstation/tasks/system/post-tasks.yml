@@ -17,7 +17,7 @@
     - { src: "kitty.conf", dest: ".config/kitty/kitty.conf" }
     - { src: "mpv.conf", dest: ".config/mpv/mpv.conf" }
 
-- name: System | Post-tasks | Clear APT cache
+- name: System | Post-tasks | Clean APT cache
   become: true
   ansible.builtin.apt:
     clean: true
