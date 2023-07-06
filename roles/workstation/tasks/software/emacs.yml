@@ -1,3 +1,10 @@
+- name: Software | Emacs | Install build dependencies
+  become: true
+  ansible.builtin.apt:
+    name: emacs
+    state: build-dep
+  when: ansible_facts['distribution'] == "Debian"
+
 - name: Software | Emacs | Install maildir-utils
   become: true
   ansible.builtin.package:
@@ -20,3 +27,4 @@
       - hunspell-hu
       - hunspell-ro
     state: present
+
