@@ -21,5 +21,5 @@
   become: true
   ansible.builtin.apt:
     clean: true
-    state: present
+    state: absent
   when: ansible_facts['distribution'] == "Debian"
