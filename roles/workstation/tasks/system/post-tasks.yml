@@ -19,7 +19,6 @@
 
 - name: System | Post-tasks | Clean APT cache
   become: true
-  ansible.builtin.apt:
-    clean: true
-    state: absent
+  ansible.builtin.command:
+    cmd: apt clean
   when: ansible_facts['distribution'] == "Debian"
