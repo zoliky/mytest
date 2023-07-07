@@ -1,10 +1,36 @@
+#- name: Software | Emacs | Install build dependencies
+#  become: true
+#  ansible.builtin.apt:
+#    name:
+#      - emacs
+#      - mu4e
+#    state: build-dep
+#  when: ansible_facts['distribution'] == "Debian"
+
 - name: Software | Emacs | Install build dependencies
   become: true
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
-      - emacs
-      - mu4e
-    state: build-dep
+      - autoconf
+      - make
+      - gcc
+      - libgtk-3-dev
+      - libgccjit-12-dev
+      - libxpm-dev
+      - libjpeg-dev
+      - libgif-dev
+      - libtiff-dev
+      - libgnutls28-dev
+      - libncurses-dev
+      - libjansson-dev
+      - libxml2-dev
+      - libtree-sitter-dev
+      - libglib2.0-dev
+      - libgmime-3.0-dev
+      - libxapian-dev
+      - guile-3.0-dev
+      - texinfo
+      - install-info
   when: ansible_facts['distribution'] == "Debian"
 
 - name: Software | Emacs | Install maildir-utils
