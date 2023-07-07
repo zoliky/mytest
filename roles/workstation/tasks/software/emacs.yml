@@ -1,7 +1,9 @@
 - name: Software | Emacs | Install build dependencies
   become: true
   ansible.builtin.apt:
-    name: emacs
+    name:
+      - emacs
+      - mu4e
     state: build-dep
   when: ansible_facts['distribution'] == "Debian"
 
