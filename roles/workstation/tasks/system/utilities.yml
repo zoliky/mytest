@@ -13,6 +13,7 @@
       - kitty
       - rsync
       - meson
+      - gnupg2
       - neovim
       - ripgrep
       - net-tools
