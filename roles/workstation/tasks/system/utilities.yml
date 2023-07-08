@@ -13,8 +13,8 @@
       - kitty
       - rsync
       - meson
-      - gnupg2
       - neovim
+      - gnupg2
       - ripgrep
       - net-tools
     state: present
