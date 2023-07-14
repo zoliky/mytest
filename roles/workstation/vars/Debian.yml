@@ -1,4 +1,5 @@
 codename: bookworm
+grub_timeout: 1
 
 package_python_psutil: python3-psutil
 package_fonts_hack: fonts-hack-ttf
