@@ -1,5 +1,7 @@
 codename: bookworm
+
 grub_timeout: 1
+grub_gfxmode: 1920x1080
 
 package_python_psutil: python3-psutil
 package_fonts_hack: fonts-hack-ttf
