@@ -1,6 +1,21 @@
+- name: Software | Flacon | Debian | Add Flacon repository key
+  become: true
+  ansible.builtin.get_url:
+    url: https://dl.google.com/linux/linux_signing_key.pub
+    dest: /etc/apt/keyrings/linux_signing_key.pub
+    mode: '0644'
+  when: ansible_facts['distribution'] == "Debian"
+
+- name: Software | Flacon | Debian | Add Flacon repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/linux_signing_key.pub] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
+  when: ansible_facts['distribution'] == "Debian"
+
 - name: Software | Flacon
   become: true
   ansible.builtin.package:
     name: flacon
     state: present
-  when: ansible_facts['distribution'] == "Fedora"
